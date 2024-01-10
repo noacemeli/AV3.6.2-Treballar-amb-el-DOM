@@ -39,5 +39,89 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //--------LLUMS----------
+  //--------LLUMS GROGUES----------
+  // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
+  var yellowPixels = document.querySelectorAll(".fork .light_pixel.yellow");
+
+  // Agrega un evento de mouseover a cada elemento seleccionado
+  yellowPixels.forEach(function (yellowPixel) {
+    yellowPixel.addEventListener("mouseover", function () {
+      // Cambia el color de fondo a azul para el elemento actual
+      yellowPixel.classList.remove("yellow");
+      yellowPixel.classList.add("blue");
+    });
+
+    // Agrega un evento de mouseout a cada elemento seleccionado
+    yellowPixel.addEventListener("mouseout", function () {
+      // Cambia el color de fondo a amarillo para el elemento actual
+      yellowPixel.classList.remove("blue");
+      yellowPixel.classList.add("yellow");
+    });
+  });
+
+  //--------LLUMS BLAVES----------
+  // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
+  var bluePixels = document.querySelectorAll(".fork .light_pixel.blue");
+
+  // Agrega un evento de mouseover a cada elemento seleccionado
+  bluePixels.forEach(function (bluePixel) {
+    bluePixel.addEventListener("mouseover", function () {
+      // Cambia el color de fondo a azul para el elemento actual
+      bluePixel.classList.remove("blue");
+      bluePixel.classList.add("yellow");
+    });
+
+    // Agrega un evento de mouseout a cada elemento seleccionado
+    bluePixel.addEventListener("mouseout", function () {
+      // Cambia el color de fondo a amarillo para el elemento actual
+      bluePixel.classList.remove("yellow");
+      bluePixel.classList.add("blue");
+    });
+  });
+
+  //--------COMMUTADOR ELECTRIC---------
+
+  var interruptor = true;
+  var allLights = document.querySelectorAll(
+    ".light_pixel.yellow, .light_pixel.blue"
+  );
+  document.body.addEventListener("keydown", function (event) {
+    if (event.key === "q" || event.key === "Q") {
+      if (interruptor) {
+        //window.alert("holi");
+        interruptor = false;
+        // Apaga todas las luces cambiando la clase a 'yellow'
+        allLights.forEach(function (light) {
+          light.style.visibility = "hidden";
+        });
+      } else {
+        interruptor = true;
+        allLights.forEach(function (light) {
+          light.style.visibility = "visible";
+        });
+      }
+    }
+  });
+
+  //--------NOMES ESTRELLA---------
+
+  document.body.addEventListener("keydown", function (event) {
+    if (event.key === "e" || event.key === "E") {
+      if (interruptor) {
+        //window.alert("holi");
+        interruptor = false;
+        // Apaga todas las luces cambiando la clase a 'yellow'
+        allLights.forEach(function (light) {
+          light.style.visibility = "hidden";
+        });
+      } else {
+        interruptor = true;
+        allLights.forEach(function (light) {
+          light.style.visibility = "visible";
+        });
+      }
+    }
+  });
+
+  // ONLOAD
 });
