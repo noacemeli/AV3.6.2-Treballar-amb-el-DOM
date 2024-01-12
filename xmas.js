@@ -1,18 +1,18 @@
-// Esta función se ejecuta cuando el documento HTML ha cargado completamente
+// Aquesta funció s'executa quan el document HTML ha carregat completament
 document.addEventListener("DOMContentLoaded", function () {
-  //--------ESTRELLA----------
+  //--------MOUSEOVER ESTRELLA----------
 
-  // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
+  // Selecciona tots els elements amb la classe "light_pixel" dins d'un element amb la classe "star"
   var starPixels = document.querySelectorAll(".star .light_pixel");
 
-  // Agrega un evento de mouseover a cada elemento seleccionado
+  // Afegeix un esdeveniment de mouseover a cada element seleccionat
   starPixels.forEach(function (starPixel) {
     starPixel.addEventListener("mouseover", function () {
-      // Cambia el color de fondo a azul para el elemento actual
+      // Canvia el color a blau per l'element amb mouseover
       starPixel.classList.remove("yellow");
       starPixel.classList.add("blue");
 
-      // Cambia el color de fondo a azul para todas las otras estrellas
+      // Canvia el color a blau per a la resta d'elements d l'estrella
       var allStars = document.querySelectorAll(
         ".star .light_pixel:not(:hover)"
       );
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //--------LLUMS GROGUES----------
+  //--------MOUSEOVER LLUMS GROGUES----------
   // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
   var yellowPixels = document.querySelectorAll(".fork .light_pixel.yellow");
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //--------LLUMS BLAVES----------
+  //--------MOUSEOVER LLUMS BLAVES----------
   // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
   var bluePixels = document.querySelectorAll(".fork .light_pixel.blue");
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //--------COMMUTADOR ELECTRIC---------
+  //--------INTERRUPTOR ELECTRIC GENERAL--------
 
   var interruptorGeneral = true;
   var allLights = document.querySelectorAll(
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //--------NOMES ESTRELLA---------
+  //--------INTERRUPTOR ESTRELLA---------
   var interruptorEstrella = true;
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "e" || event.key === "E") {
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //--------NOMES BOMBETES---------
+  //--------INTERRUPTOR BOMBETES---------
 
   var bombetes = document.querySelectorAll(
     ".fork .light_pixel.yellow, .fork .light_pixel.blue"
@@ -151,5 +151,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  //--------GARLANDES---------
+  var redPixels = document.querySelectorAll(".fork .light_pixel");
+  console.log(redPixels);
+  document.body.addEventListener("keydown", function (event) {
+    if (event.key === "g" || event.key === "G") {
+      for (let i = 0; i < redPixels.length; i++) {
+        if (
+          redPixels(i) == 9 ||
+          16 ||
+          24 ||
+          25 ||
+          26 ||
+          27 ||
+          63 ||
+          72 ||
+          81 ||
+          82 ||
+          87 ||
+          91 ||
+          92
+        ) {
+          redPixels(i).classList.remove("green");
+          redPixels(i).classList.add("red");
+        }
+      }
+    }
+  });
   // ONLOAD
 });
