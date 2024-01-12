@@ -107,18 +107,46 @@ document.addEventListener("DOMContentLoaded", function () {
   var interruptorEstrella = true;
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "e" || event.key === "E") {
-      if (interruptorEstrella) {
-        interruptorEstrella = false;
-        // Apaga todas las luces cambiando la clase a 'yellow'
-        starPixels.forEach(function (starPixel) {
-          starPixel.style.visibility = "hidden";
-        });
-      } else {
-        interruptorEstrella = true;
-        // Apaga todas las luces cambiando la clase a 'yellow'
-        starPixels.forEach(function (starPixel) {
-          starPixel.style.visibility = "visible";
-        });
+      if (interruptorGeneral) {
+        if (interruptorEstrella) {
+          interruptorEstrella = false;
+          // Apaga todas las luces cambiando la clase a 'yellow'
+          starPixels.forEach(function (starPixel) {
+            starPixel.style.visibility = "hidden";
+          });
+        } else {
+          interruptorEstrella = true;
+          // Apaga todas las luces cambiando la clase a 'yellow'
+          starPixels.forEach(function (starPixel) {
+            starPixel.style.visibility = "visible";
+          });
+        }
+      }
+    }
+  });
+
+  //--------NOMES BOMBETES---------
+
+  var bombetes = document.querySelectorAll(
+    ".fork .light_pixel.yellow, .fork .light_pixel.blue"
+  );
+  var interruptorBombetes = true;
+  document.body.addEventListener("keydown", function (event) {
+    if (event.key === "l" || event.key === "L") {
+      if (interruptorGeneral) {
+        if (interruptorBombetes) {
+          interruptorBombetes = false;
+          // Apaga todas las luces cambiando la clase a 'yellow'
+          bombetes.forEach(function (bombeta) {
+            bombeta.style.visibility = "hidden";
+          });
+        } else {
+          interruptorBombetes = true;
+          // Apaga todas las luces cambiando la clase a 'yellow'
+          bombetes.forEach(function (bombeta) {
+            bombeta.style.visibility = "visible";
+          });
+        }
       }
     }
   });
