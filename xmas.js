@@ -81,21 +81,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //--------COMMUTADOR ELECTRIC---------
 
-  var interruptor = true;
+  var interruptorGeneral = true;
   var allLights = document.querySelectorAll(
     ".light_pixel.yellow, .light_pixel.blue"
   );
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "q" || event.key === "Q") {
-      if (interruptor) {
+      if (interruptorGeneral) {
         //window.alert("holi");
-        interruptor = false;
+        interruptorGeneral = false;
         // Apaga todas las luces cambiando la clase a 'yellow'
         allLights.forEach(function (light) {
           light.style.visibility = "hidden";
         });
       } else {
-        interruptor = true;
+        interruptorGeneral = true;
         allLights.forEach(function (light) {
           light.style.visibility = "visible";
         });
@@ -104,20 +104,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //--------NOMES ESTRELLA---------
-
+  var interruptorEstrella = true;
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "e" || event.key === "E") {
-      if (interruptor) {
-        //window.alert("holi");
-        interruptor = false;
+      if (interruptorEstrella) {
+        interruptorEstrella = false;
         // Apaga todas las luces cambiando la clase a 'yellow'
-        allLights.forEach(function (light) {
-          light.style.visibility = "hidden";
+        starPixels.forEach(function (starPixel) {
+          starPixel.style.visibility = "hidden";
         });
       } else {
-        interruptor = true;
-        allLights.forEach(function (light) {
-          light.style.visibility = "visible";
+        interruptorEstrella = true;
+        // Apaga todas las luces cambiando la clase a 'yellow'
+        starPixels.forEach(function (starPixel) {
+          starPixel.style.visibility = "visible";
         });
       }
     }
