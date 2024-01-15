@@ -153,29 +153,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //--------GARLANDES---------
   var redPixels = document.querySelectorAll(".fork .light_pixel");
+  var garlandes = [
+    8, 15, 23, 24, 25, 26, 44, 53, 62, 63, 68, 72, 73, 82, 83, 84, 94, 107, 110,
+    121, 127, 128, 129, 135, 136, 147, 148, 149, 150, 151,
+  ];
   console.log(redPixels);
+
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "g" || event.key === "G") {
-      for (let i = 0; i < redPixels.length; i++) {
-        if (
-          redPixels(i) == 9 ||
-          16 ||
-          24 ||
-          25 ||
-          26 ||
-          27 ||
-          63 ||
-          72 ||
-          81 ||
-          82 ||
-          87 ||
-          91 ||
-          92
-        ) {
-          redPixels(i).classList.remove("green");
-          redPixels(i).classList.add("red");
+      redPixels.forEach(function (redPixel, i) {
+        if (garlandes.includes(i)) {
+          redPixel.classList.remove("green");
+          redPixel.classList.add("red");
         }
-      }
+      });
     }
   });
   // ONLOAD
