@@ -22,13 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Agrega un evento de mouseout a cada elemento seleccionado
+    // Repetim pero amb mouseout
     starPixel.addEventListener("mouseout", function () {
-      // Cambia el color de fondo a amarillo para el elemento actual
       starPixel.classList.remove("blue");
       starPixel.classList.add("yellow");
 
-      // Cambia el color de fondo a amarillo para todas las otras estrellas
       var allStars = document.querySelectorAll(
         ".star .light_pixel:not(:hover)"
       );
@@ -40,40 +38,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //--------MOUSEOVER LLUMS GROGUES----------
-  // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
+  // Selecciona les llums grogues
   var yellowPixels = document.querySelectorAll(".fork .light_pixel.yellow");
 
-  // Agrega un evento de mouseover a cada elemento seleccionado
+  // Afegeix un mouseover
   yellowPixels.forEach(function (yellowPixel) {
     yellowPixel.addEventListener("mouseover", function () {
-      // Cambia el color de fondo a azul para el elemento actual
+      // Canvia el color
       yellowPixel.classList.remove("yellow");
       yellowPixel.classList.add("blue");
     });
 
-    // Agrega un evento de mouseout a cada elemento seleccionado
+    // Igual pero amb un mouseout
     yellowPixel.addEventListener("mouseout", function () {
-      // Cambia el color de fondo a amarillo para el elemento actual
       yellowPixel.classList.remove("blue");
       yellowPixel.classList.add("yellow");
     });
   });
 
   //--------MOUSEOVER LLUMS BLAVES----------
-  // Selecciona todos los elementos con la clase "light_pixel" dentro de un elemento con la clase "star"
+  // Selecciona les llums blaves
   var bluePixels = document.querySelectorAll(".fork .light_pixel.blue");
 
-  // Agrega un evento de mouseover a cada elemento seleccionado
+  // Afegeix mouseover
   bluePixels.forEach(function (bluePixel) {
     bluePixel.addEventListener("mouseover", function () {
-      // Cambia el color de fondo a azul para el elemento actual
+      // Canvia el color canviat la classe
       bluePixel.classList.remove("blue");
       bluePixel.classList.add("yellow");
     });
 
-    // Agrega un evento de mouseout a cada elemento seleccionado
+    // Igual pero amb mouseout
     bluePixel.addEventListener("mouseout", function () {
-      // Cambia el color de fondo a amarillo para el elemento actual
       bluePixel.classList.remove("yellow");
       bluePixel.classList.add("blue");
     });
@@ -81,21 +77,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //--------INTERRUPTOR ELECTRIC GENERAL--------
 
+  //Crea un boolean per al interruptor i selecciona TOTES les llums
   var interruptorGeneral = true;
   var allLights = document.querySelectorAll(
     ".light_pixel.yellow, .light_pixel.blue"
   );
+  //Afegeix un keydown per la lletra q
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "q" || event.key === "Q") {
+      // Si l'interruptor esta ences
       if (interruptorGeneral) {
         //window.alert("holi");
+
+        //Apaga l'interruptor
         interruptorGeneral = false;
-        // Apaga todas las luces cambiando la clase a 'yellow'
+        // Apaga totes les llums canvian la visibilitat
         allLights.forEach(function (light) {
           light.style.visibility = "hidden";
         });
+
+        //Si l'interruptor ja esta apagat
       } else {
+        //L'encenem
         interruptorGeneral = true;
+        //Encenem TOTS els llums
         allLights.forEach(function (light) {
           light.style.visibility = "visible";
         });
