@@ -98,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //Si l'interruptor ja esta apagat
       } else {
-        //L'encenem
+        //Encen l'interruptor
         interruptorGeneral = true;
-        //Encenem TOTS els llums
+        //Encen TOTS els llums
         allLights.forEach(function (light) {
           light.style.visibility = "visible";
         });
@@ -110,18 +110,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //--------INTERRUPTOR ESTRELLA---------
   var interruptorEstrella = true;
+  // Keydown per la lletra e
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "e" || event.key === "E") {
+      //Si l'interruptor general esta ences
       if (interruptorGeneral) {
+        // Y l'interruptor de l'estrella tambe esta ences
         if (interruptorEstrella) {
+          //Apaga l'interruptor
           interruptorEstrella = false;
-          // Apaga todas las luces cambiando la clase a 'yellow'
+          // Apaga le sllums de l'estrella
           starPixels.forEach(function (starPixel) {
             starPixel.style.visibility = "hidden";
           });
         } else {
+          // Encen l'interruptor
           interruptorEstrella = true;
-          // Apaga todas las luces cambiando la clase a 'yellow'
+          // Encen les llums de l'estrella
           starPixels.forEach(function (starPixel) {
             starPixel.style.visibility = "visible";
           });
@@ -132,22 +137,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //--------INTERRUPTOR BOMBETES---------
 
+  // Agafa totes les llums de l'arbre tant blaves com grogues
   var bombetes = document.querySelectorAll(
     ".fork .light_pixel.yellow, .fork .light_pixel.blue"
   );
   var interruptorBombetes = true;
+  // Keydown per la lletra l
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "l" || event.key === "L") {
+      //Procedim igual que per l'estrella
       if (interruptorGeneral) {
         if (interruptorBombetes) {
           interruptorBombetes = false;
-          // Apaga todas las luces cambiando la clase a 'yellow'
           bombetes.forEach(function (bombeta) {
             bombeta.style.visibility = "hidden";
           });
         } else {
           interruptorBombetes = true;
-          // Apaga todas las luces cambiando la clase a 'yellow'
           bombetes.forEach(function (bombeta) {
             bombeta.style.visibility = "visible";
           });
@@ -157,16 +163,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //--------GARLANDES---------
+  // Agafa tots el pixels del cos de l'arbre
   var redPixels = document.querySelectorAll(".fork .light_pixel");
+  //Posiciones de la garlanda
   var garlandes = [
     8, 15, 23, 24, 25, 26, 44, 53, 62, 63, 68, 72, 73, 82, 83, 84, 94, 107, 110,
     121, 127, 128, 129, 135, 136, 147, 148, 149, 150, 151,
   ];
-  console.log(redPixels);
-
+  // console.log(redPixels);
+  // Keydown per la lletra g
   document.body.addEventListener("keydown", function (event) {
     if (event.key === "g" || event.key === "G") {
+      //Recorrem amb un for each
       redPixels.forEach(function (redPixel, i) {
+        //Si la posicio coincideix amb la de la garlanda la pintem de vermell
         if (garlandes.includes(i)) {
           redPixel.classList.remove("green");
           redPixel.classList.add("red");
@@ -174,5 +184,5 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-  // ONLOAD
+  // FI ONLOAD
 });
