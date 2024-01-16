@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //--------PEQUEÑOS---------
+  //--------REGALS---------
 
   // FI ONLOAD
 });
