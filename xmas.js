@@ -184,5 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+
+  //--------PEQUEÑOS---------
+
   // FI ONLOAD
 });
