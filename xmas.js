@@ -186,6 +186,49 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //--------REGALS---------
+  // Selecciona los contenedores "pot"
+  var pots = document.querySelectorAll(".pot");
+
+  //Posicions dels regals
+  var regals = [
+    7, 8, 9, 11, 12, 21, 26, 28, 29, 30, 32, 33, 42, 43, 44, 46, 47, 48,
+  ];
+
+  //Posicions dels espais entre els regals
+
+  var hiddenPixels = [10, 13, 14, 20, 22, 23, 24, 25, 27, 31, 34, 35, 41, 45];
+  // Keydown per la lletra r
+  document.body.addEventListener("keydown", keydownHandler);
+  function keydownHandler(event) {
+    if (event.key === "r" || event.key === "R") {
+      // Ignorem el primer .pot
+      for (var i = 1; i < 3; i++) {
+        for (var j = 0; j < 16; j++) {
+          // Creem els divs que despres canviarem els colors
+          var newLightPixel = document.createElement("div");
+          newLightPixel.className = "light_pixel brown";
+          // Agregar el nuevo elemento al div con la clase "pot"
+          pots[i].appendChild(newLightPixel);
+        }
+      }
+
+      // Selecciona tots els pixels del pot
+      var regalPixels = document.querySelectorAll(".pot .light_pixel");
+      regalPixels.forEach(function (regalPixel, i) {
+        // Si la posicio coincideix amb la dels regals la pintem de vermell
+        if (regals.includes(i)) {
+          regalPixel.classList.remove("brown");
+          regalPixel.classList.add("red");
+        } else if (hiddenPixels.includes(i)) {
+          // Si la posicio coincideix amb la dels respais canvia l'estil a hidden
+          regalPixel.style.visibility = "hidden";
+        }
+      });
+
+      // Eliminar el event listener
+      document.body.removeEventListener("keydown", keydownHandler);
+    }
+  }
 
   // FI ONLOAD
 });
